@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* a, a링크 걸렸을때, a링크 클릭했을때 */
+/* 하이퍼링크 색 바뀌는것 없애기 */
+a,
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+
+}
+
+/* li 점 없애기 */
+li {
+    list-style: none;
+}
+
+/* 컨테이너라는 전체 공통속성을 뽑아내서 크기를 동시에 조절함 */
+.container {
+    width: 1140px;
+    margin: 0 auto;
+
+}
+
+/* GLOBAL 끝 */
+
+header {
+    position: fixed;
+    color: white;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 1rem;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li {
+    padding: 10px;
+
+}
+
+header button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: white
+}
+
+header h1 button {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header nav ul li button {
+    font-size: 1.2rem;
+}
+
+/* HEADER 끝 */
+
+main {
+    width: 100%;
+    height: 100vh;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/me.jpg') center center;
+    background-size: cover;
+    /* 
+        선형 그라디언트 색상 적용 - 앞의 값은 위 , 뒤의 값은 아래
+        해당 속성 사용 시 뒤쪽에 추가로 붙일 경우 색상 지정 뒤에 콤마(,) 필수
+        url을 통해 백그라운드 이미지 적용 후 center center - 가로축의 중앙 세로축의 중앙 
+    */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /*  
+        justify-content - 컨테이너 축과 컨텐츠 사이의 공간 정렬
+        algin-items - 아이템 정렬
+        text-algin - 텍스트 정렬 
+    */
+}
+
+main h4 {
+    font-size: 2rem;
+}
+
+main h2 {
+    font-size: 3.5rem;
+    margin: 2rem 0;
+    letter-spacing: 3px;
+}
+
+main p {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: transparent;
+    font-size: 1.25rem;
+    font-family: "Noto Sans KR", sans-serif;
+    /* 
+        앞의 폰트는 개발자가 적용시킬 폰트,
+        뒤의 폰트는 앞의 폰트가 적용안될 경우 대체할 폰트
+        띄어쓰기가 아닌 콤마로 구분
+    */
+}
+
+main button.download {
+    background-color: transparent;
+    border: 3px solid white;
+    color: white;
+    border-radius: 20px;
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+main button.mouse {
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    /* 절대좌표계로 고정 */
+    position: absolute;
+    /* 아래 공간 1rem만큼 점유하도록 설정 */
+    bottom: 1rem;
+    /* 왼쪽으로부터 50% 설정하여 가운데 정렬 */
+    left: 50%;
+
+    transform: translateX(-50%);
+    animation: upDown 1s ease-in-out infinite;
+    cursor: pointer;
+}
+
+/* upDown 애니메이션 설정 */
+@keyframes upDown {
+    0% {
+        bottom: 1rem;
+    }
+
+    50% {
+        bottom: 1.5rem;
+    }
+
+    100% {
+        bottom: 1rem;
+    }
+}
+
+/* main 끝 */
+
+section {
+    padding: 5rem 0;
+}
+
+/* 렌더링이 다 끝나고 난 이후 작동하는 가상선택자 */
+/* float를 사용해서 띄우고 해당 위치를 블록으로 고정시킬때 사용하는 ::after */
+/* 현재는 사용하지 않음 */
+section .about-self::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+section .title {
+    margin-bottom: 3rem;
+}
+
+section .title h4 {
+    font-size: 1.3rem;
+    color: #ed4848;
+    /* position: relative; */
+}
+
+section .title h2 {
+    font-size: 1.35rem;
+}
+
+section .about-self .left {
+    width: 50%;
+    float: left;
+}
+
+section .about-self .left img {
+    max-width: 100%;
+}
+
+section .about-self .right {
+    width: 50%;
+    float: left;
+    padding: 0 2rem;
+}
+
+section .about-self .right h3 strong {
+    color: #ed4848
+}
+
+section .about-self .right p {
+    font-size: 1.15rem;
+    margin: 1rem 0;
+}
+
+section .about-self .right .social {
+    font-size: 2.5rem;
+    margin-right: 0.2rem;
+}
+
+/* About self 끝 */
+
+
+section .contact-me {
+    display: flex;
+}
+
+section .contact .left {
+    width: 30%;
+}
+
+section .contact .right {
+    margin: 0 2rem;
+    width: 70%;
+}
+
+section .contact-me .left .icon{
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+}
+
+section .contact-me .left .card1, .card2, .card3 {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid lightgray ;
+    margin-bottom: 1rem;
+    word-break: break-all;
+}
+
+section .contact .right {
+    padding: 1rem;
+    border: 1px solid lightgray ;
+    margin-bottom: 1.25rem;
+}
+
+section .contact .contact-me .right .form-group {
+    margin-bottom: 1.25rem;
+}
+
+section .contact .contact-me .right .form-group label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+section .contact .contact-me .right .form-group .name-text, .password-text, .textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid lightgray ;
+}
+section .contact .contact-me .right .form-group .textarea {
+    word-break: break-all;
+    height: 10rem;
+    resize: none;
+    
+}
+
+section .contact .contact-me .right .send{
+    width: 100%;
+    padding: 0.5rem;
+    border: 0;
+    color:white;
+    background-color: orange;
+}
+
+
+
+/* 미디어 쿼리를 통한 PC / Mobile 통합 웹페이지 구현 */
+/* 그래픽 자원을 많이 먹기 때문에 주의 */
+/* 모든 css가 렌더링 된 후 최종적으로 블록 단위 크기 고정 */
+@media screen and (max-width: 1140px) {
+    main .container{
+        width: 992px;
+    }
+    section .container {
+        width: 600px;
+    }
+    section .about-self .left {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    section .about-self .right {
+        width: 100%;
+    }
+}
