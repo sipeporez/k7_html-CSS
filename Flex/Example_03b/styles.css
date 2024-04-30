@@ -1,0 +1,23 @@
+.wrapper{
+    padding: 1rem;
+    text-align: center;
+    color:#333;
+    background: #f1f5f9;
+    
+}
+
+h2 {
+    font-size:2rem;
+}
+
+.logos {
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.logos img {
+    height: 3rem;
+    margin: 0 1rem 0.5rem;
+}
